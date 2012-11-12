@@ -1,4 +1,4 @@
 rapidenium
 ==========
 
-Rapid Selenium-Testing-Framework.
+Create and run Selenium-Tests fast and intuitively.
