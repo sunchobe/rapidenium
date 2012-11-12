@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean id="defaultSeleniumConfiguration" class="org.codecap.test.selenium.SeleniumConfiguration">
+	    <!-- INTERNET_EXPLORER or FIREFOX -->
+		<constructor-arg name="browser" value="INTERNET_EXPLORER" />
+		<constructor-arg name="seleniumServerUrl" ref="seleniumServerUrl" />
+		<constructor-arg name="applicationRootUrl" ref="googleRootUrl" />
+	</bean>
+
+	<bean id="googleRootUrl" class="org.codecap.test.selenium.SeleniumUrl">
+		<constructor-arg name="protocol" value="HTTP" />
+		<constructor-arg name="host" value="www.google.com" />
+		<constructor-arg name="port" value="80" />
+	</bean>
+	
+	<bean id="seleniumServerUrl" class="org.codecap.test.selenium.SeleniumUrl">
+		<constructor-arg name="protocol" value="HTTP" />
+		<constructor-arg name="host" value="localhost"/>
+		<constructor-arg name="port" value="4444" />
+		<constructor-arg name="resource" value="/wd/hub"/>
+	</bean>
+	
+</beans>
